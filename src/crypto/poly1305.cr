@@ -46,7 +46,7 @@ class Crypto::Poly1305
   end
 
   # Processes a message fragment, msg bytes should be 16 bytes alligned.
-  # Should different size be used, the final block is assumed, and further
+  # Should a different size be used, the final block is assumed and further
   # calculations would be incorrect.
   def update(msg : Bytes)
     rounds = msg.size // BLOCK_SIZE
