@@ -1,4 +1,4 @@
-# The ChaCha20 cipheris a high-speed cipher
+# The ChaCha20 cipher is a high-speed cipher
 # It is considerably faster than AES in software-only
 # implementations, making it around three times as fast on
 # platforms that lack specialized AES hardware.
