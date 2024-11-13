@@ -2,7 +2,7 @@
 # It is considerably faster than AES in software-only
 # implementations, making it around three times as fast on
 # platforms that lack specialized AES hardware.
-# ChaCha20 is also immune to timing attacks.
+# ChaCha20 is also significantly less prone to timing side-channel attacks.
 class Crypto::ChaCha20
   # :nodoc:
   BLOCK_SIZE = 64
