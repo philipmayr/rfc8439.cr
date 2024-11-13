@@ -25,8 +25,8 @@ class Crypto::AeadChacha20Poly1305
     write(data)
   end
 
-  # An arbitrary length plaintext, has to be multiples of 16 bytes
-  # last call might be with less than 16 bytes
+  # An arbitrary length plaintext- has to be multiples of 16 bytes.
+  # Last call may be with fewer than 16 bytes.
   def update(data : Bytes)
     @plaintext_size += data.size
     write(@cipher.encrypt(data))
@@ -41,9 +41,9 @@ class Crypto::AeadChacha20Poly1305
     @mac.final
   end
 
-  # decrpyt parses the data and verifies the data with the tag
-  # returns the additional authenticated data. The plaintext is
-  # written to the provided mem, in case the tag is not validating
+  # decrypt parses the data and verifies the data with the tag
+  # returning the additional authenticated data. The plaintext is
+  # written to the provided mem; in case the tag is not validating
   # the data an exception is raised.
   def decrypt(data : Bytes, tag : Bytes) : Bytes
     # validate the tag
@@ -65,7 +65,7 @@ class Crypto::AeadChacha20Poly1305
     plaintext = data[offset...(offset &+ plaintext_size)]
     @io.write(@cipher.encrypt(plaintext))
 
-    # aad
+    # AAD
     data[0..(aad_size &- 1)]
   end
 
