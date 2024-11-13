@@ -19,14 +19,14 @@ class Crypto::AeadChacha20Poly1305
 
   # Arbitrary length additional authenticated data (AAD).
   # Needs to be written before the plaintext. Can be called multiple
-  # times, but only the last block can be less then 16 bytes.
+  # times, but only the last block can be less than 16 bytes.
   def aad(data : Bytes)
     @aad_size += data.size
     write(data)
   end
 
   # An arbitrary length plaintext, has to be multiples of 16 bytes
-  # last call might be with less then 16 bytes
+  # last call might be with less than 16 bytes
   def update(data : Bytes)
     @plaintext_size += data.size
     write(@cipher.encrypt(data))
