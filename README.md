@@ -1,6 +1,6 @@
 # rfc8439
 
-Pure* crystal implementation of the **ChaCha20** stream cipher as well as the **Poly1305** authenticator defined in rfc8439.
+Pure* Crystal implementation of the **ChaCha20** stream cipher as well as the **Poly1305** authenticator defined in rfc8439.
 (* uses BigInt and therefore `gmp`)
 
 ## Installation
