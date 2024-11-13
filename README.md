@@ -1,6 +1,6 @@
 # rfc8439
 
-Pure* Crystal implementation of the **ChaCha20** stream cipher as well as the **Poly1305** authenticator defined in rfc8439.
+Pure* Crystal implementation of the **ChaCha20** stream cipher and the **Poly1305** authenticator defined in rfc8439.
 (* uses BigInt and therefore `gmp`)
 
 ## Installation
@@ -32,7 +32,7 @@ cipher = Crypto::ChaCha20.new(key, nonce)
 encrypted = cipher.encrypt(msg)
 
 # encryption is carried out using bitwise XOR,
-# so decryption is carried out by encrypting the cipher text
+# so decryption is just encryption of the cipher text
 cipher = Crypto::ChaCha20.new(key, nonce)
 plaintext = cipher.encrypt(encrypted)
 
