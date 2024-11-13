@@ -31,8 +31,8 @@ msg = "Hello World".to_slice
 cipher = Crypto::ChaCha20.new(key, nonce)
 encrypted = cipher.encrypt(msg)
 
-# encryption is done using XOR so decryption is done
-# by encrypting the cypher text
+# encryption is carried out using bitwise XOR,
+# so decryption is carried out by encrypting the cipher text
 cipher = Crypto::ChaCha20.new(key, nonce)
 plaintext = cipher.encrypt(encrypted)
 
@@ -56,7 +56,7 @@ puts tag
 
 ### AEADChaCha20Poly1305
 
-Writes the cipher text to `ciphertext` an `IO` target and returns the
+Writes the cipher text to `ciphertext`, an `IO` target, and returns the
 16 byte (128 bit) Tag for the text.
 
 ```crystal
