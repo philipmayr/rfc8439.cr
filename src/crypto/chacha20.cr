@@ -1,8 +1,8 @@
-# The ChaCha20 cipher is a high-speed cipher
+# The ChaCha20 cipher is a high-speed cipher.
 # It is considerably faster than AES in software-only
 # implementations, making it around three times as fast on
 # platforms that lack specialized AES hardware.
-# ChaCha20 is also not sensitive to timing attacks.
+# ChaCha20 is also immune to timing attacks.
 class Crypto::ChaCha20
   # :nodoc:
   BLOCK_SIZE = 64
@@ -64,14 +64,14 @@ class Crypto::ChaCha20
     end
   end
 
-  # create a clone from the state
+  # Create a clone from the state
   def clone
     klone = self.class.new(@state)
     klone.reset
     klone
   end
 
-  # encrypt the plaintext returns the encrypted bytes
+  # encrypt the plaintext, returning the encrypted bytes
   def encrypt(plaintext : Bytes) : Bytes
     # caclulate block size based on plaintext
     size = plaintext.size + (BLOCK_SIZE - plaintext.size % BLOCK_SIZE)
@@ -117,7 +117,7 @@ class Crypto::ChaCha20
     # initialize block state
     block_state.to_slice.copy_from(@state.to_slice)
 
-    # perform inner blocks 10 times
+    # carry out inner blocks 10 times
     10.times do
       quarter_round(block_state.to_slice, 0, 4, 8, 12)
       quarter_round(block_state.to_slice, 1, 5, 9, 13)
