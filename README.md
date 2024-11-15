@@ -32,7 +32,7 @@ cipher = Crypto::ChaCha20.new(key, nonce)
 encrypted = cipher.encrypt(msg)
 
 # encryption is carried out using bitwise XOR,
-# so decryption is just encryption of the cipher text
+# so decryption is just an encryption of the cipher text
 cipher = Crypto::ChaCha20.new(key, nonce)
 plaintext = cipher.encrypt(encrypted)
 
