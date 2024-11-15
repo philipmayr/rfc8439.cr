@@ -23,7 +23,7 @@ Pure* Crystal implementation of the **ChaCha20** stream cipher and the **Poly130
 require "rfc8439"
 
 # key and nonce are usually given using Bytes,
-# but for convenience can be done as a hex string
+# but for convenience can be set as a Hex string
 key = "00:01:02:03:04:05:06:07:08:09:0a:0b:0c:0d:0e:0f:10:11:12:13:14:15:16:17:18:19:1a:1b:1c:1d:1e:1f"
 nonce = "00:00:00:09:00:00:00:4a:00:00:00:00"
 msg = "Hello World".to_slice
